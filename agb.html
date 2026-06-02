@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AGB – Tischlerei Auer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --espresso:#1F1E1C; --bark:#3B3835; --walnut:#6E6762;
+      --honey:#9E8C7A; --gold:#BFB0A2; --cream:#F7F6F4;
+      --parchment:#EFEEEB; --fog:#DDDBD7; --white:#FFFFFF;
+      --rosegold:#C4896A;
+      --radius-sm:4px; --radius-md:8px; --radius-lg:16px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--espresso);}
+    a{color:var(--rosegold);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+
+    .header{background:var(--white);border-bottom:1px solid var(--fog);box-shadow:0 2px 20px rgba(26,23,20,.07);padding:.75rem 2rem;display:flex;flex-direction:column;align-items:center;gap:.5rem;}
+    .header img{height:75px;width:auto;object-fit:contain;}
+    .header-nav{display:flex;gap:2rem;font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;}
+    .header-nav a{color:var(--bark);transition:color .2s;}
+    .header-nav a:hover{color:var(--rosegold);text-decoration:none;}
+
+    .page{max-width:820px;margin:0 auto;padding:4rem 2rem 6rem;}
+    .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:600;margin-bottom:.5rem;}
+    .page-meta{font-size:.8rem;color:var(--walnut);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem;}
+    .page-subtitle{font-size:.85rem;color:var(--walnut);margin-bottom:3rem;padding-bottom:1.5rem;border-bottom:1px solid var(--fog);line-height:1.7;}
+
+    .notice{background:var(--white);border:1px solid var(--fog);border-left:3px solid var(--rosegold);border-radius:var(--radius-md);padding:1.25rem 1.5rem;margin-bottom:3rem;font-size:.85rem;color:var(--walnut);line-height:1.7;}
+    .notice strong{color:var(--espresso);}
+
+    .section{margin-bottom:2.5rem;}
+    .section-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--rosegold);opacity:.5;line-height:1;margin-bottom:.3rem;}
+    .section h2{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;margin-bottom:.9rem;color:var(--espresso);}
+    .section p{font-size:.9rem;line-height:1.85;color:var(--walnut);margin-bottom:.7rem;}
+    .section ul{padding-left:1.2rem;margin-bottom:.7rem;}
+    .section ul li{font-size:.9rem;line-height:1.85;color:var(--walnut);margin-bottom:.3rem;}
+    .divider{border:none;border-top:1px solid var(--fog);margin:2.5rem 0;}
+
+    .footer{background:var(--espresso);padding:2rem;text-align:center;}
+    .footer p{font-size:.8rem;color:rgba(214,206,194,.5);}
+    .footer a{color:rgba(214,206,194,.5);margin:0 .5rem;}
+    .footer a:hover{color:var(--fog);}
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <a href="index.html"><img src="logo-transparent.png" alt="Tischlerei Auer" /></a>
+  <nav class="header-nav">
+    <a href="index.html">Startseite</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="index.html#kontakt">Kontakt</a>
+  </nav>
+</header>
+
+<main class="page">
+
+  <h1 class="page-title">Allgemeine Geschäftsbedingungen</h1>
+  <p class="page-meta">Tischlerei Auer · Stand: Januar 2026</p>
+  <p class="page-subtitle">Tischlerei Auer · Klarenbrunnstraße 113 · 6700 Bludenz · Österreich<br>
+  Gültig für alle Aufträge und Lieferungen der Tischlerei Auer.</p>
+
+  <div class="notice">
+    <strong>Hinweis:</strong> Diese AGB wurden nach bestem Wissen für österreichisches Recht (ABGB, KSchG, UGB) erstellt. Für verbindliche Rechtsberatung empfehlen wir die Überprüfung durch die WKO Vorarlberg oder einen Rechtsanwalt.
+  </div>
+
+  <div class="section">
+    <div class="section-num">01</div>
+    <h2>Geltungsbereich</h2>
+    <p>Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge, Lieferungen und Leistungen der Tischlerei Auer (nachfolgend „Auftragnehmer") mit ihren Kunden (nachfolgend „Auftraggeber").</p>
+    <p>Abweichende Bedingungen des Auftraggebers werden nur dann anerkannt, wenn der Auftragnehmer ihrer Geltung ausdrücklich schriftlich zugestimmt hat.</p>
+  </div>
+  <hr class="divider"/>
+
+  <div class="section">
+    <div class="section-num">02</div>
+    <h2>Angebot und Vertragsabschluss</h2>
+    <p>Angebote des Auftragnehmers sind freibleibend und unverbindlich, sofern sie nicht ausdrücklich als verbindlich bezeichnet sind. Ein Vertrag kommt erst durch schriftliche Auftragsbestätigung oder Beginn der Ausführung zustande.</p>
+    <p>Maß- und Detailangaben in Katalogen, Prospekten oder auf der Website sind unverbindlich. Maßgeblich sind ausschließlich die im Auftrag festgehaltenen Angaben.</p>
+  </div>
+  <hr class="divider"/>
+
+  <div class="section">
+    <div class="section-num">03</div>
+    <h2>Preise und Zahlungsbedingungen</h2>
+    <p>Alle Preise verstehen sich in Euro, zuzüglich der gesetzlichen Umsatzsteuer. Angebote gelten für die im Angebot genannte Gültigkeitsdauer, längstens jedoch 30 Tage.</p>
+    <p>Bei Auftragserteilung ist eine Anzahlung von 50 % des Auftragswertes zu leisten. Die Restzahlung ist bei Übergabe bzw. Fertigstellung fällig.</p>
+    <p>Bei Zahlungsverzug werden Verzugszinsen in der gesetzlich vorgeschriebenen Höhe berechnet. Inkasso- und Mahnkosten gehen zu Lasten des Auftraggebers.</p>
+  </div>
+  <hr class="divider"/>
+
+  <div class="section">
+    <div class="section-num">04</div>
+    <h2>Lieferung und Montage</h2>
+    <p>Liefertermine sind, soweit nicht ausdrücklich als verbindlich bezeichnet, unverbindliche Richtwerte. Lieferverzögerungen durch höhere Gewalt, Materialengpässe oder andere unverschuldete Umstände berechtigen den Auftraggeber nicht zum Rücktritt oder zu Schadenersatzforderungen.</p>
+    <p>Der Auftraggeber hat dafür zu sorgen, dass die Montageflächen zum vereinbarten Termin zugänglich, sauber und in einem montagefähigen Zustand sind. Wartezeiten durch nicht erfüllte Vorleistungen werden gesondert verrechnet.</p>
+  </div>
+  <hr class="divider"/>
+
+  <div class="section">
+    <div class="section-num">05</div>
+    <h2>Eigentumsvorbehalt</h2>
+    <p>Die gelieferte Ware bleibt bis zur vollständigen Bezahlung des Kaufpreises Eigentum des Auftragnehmers. Bei Zahlungsverzug ist der Auftragnehmer berechtigt, die Ware zurückzufordern.</p>
+  </div>
+  <hr class="divider"/>
+
+  <div class="section">
+    <div class="section-num">06</div>
+    <h2>Gewährleistung</h2>
+    <p>Es gelten die gesetzlichen Gewährleistungsbestimmungen nach österreichischem Recht (ABGB). Die Gewährleistungsfrist beträgt zwei Jahre ab Übergabe.</p>
+    <p>Natürliche Materialeigenschaften von Holz (Quellen, Schwinden, Rissbildung) stellen keinen Mangel dar, sofern sie im üblichen Rahmen liegen und handwerklich korrekt verarbeitet wurde.</p>
+    <p>Mängel sind dem Auftragnehmer unverzüglich schriftlich zu melden. Eigenmächtige Reparaturversuche durch den Auftraggeber oder Dritte führen zum Erlöschen der Gewährleistung.</p>
+  </div>
+  <hr class="divider"/>
+
+  <div class="section">
+    <div class="section-num">07</div>
+    <h2>Haftung</h2>
+    <p>Die Haftung des Auftragnehmers für leichte Fahrlässigkeit ist ausgeschlossen, soweit es sich nicht um Personenschäden handelt. Die Haftung für Folgeschäden, entgangenen Gewinn und Schäden Dritter ist ausgeschlossen.</p>
+    <p>Die Haftung ist in jedem Fall auf den Auftragswert begrenzt.</p>
+  </div>
+  <hr class="divider"/>
+
+  <div class="section">
+    <div class="section-num">08</div>
+    <h2>Rücktritt und Stornierung</h2>
+    <p>Ein Rücktritt vom Vertrag ist nur mit ausdrücklicher Zustimmung des Auftragnehmers möglich. Bei Stornierung durch den Auftraggeber werden folgende Stornogebühren fällig:</p>
+    <ul>
+      <li>Bis 4 Wochen vor vereinbartem Liefertermin: 20 % des Auftragswertes</li>
+      <li>Bis 2 Wochen vor vereinbartem Liefertermin: 40 % des Auftragswertes</li>
+      <li>Weniger als 2 Wochen vor vereinbartem Liefertermin: 60 % des Auftragswertes</li>
+      <li>Nach Produktionsbeginn: 80 % des Auftragswertes</li>
+    </ul>
+  </div>
+  <hr class="divider"/>
+
+  <div class="section">
+    <div class="section-num">09</div>
+    <h2>Datenschutz</h2>
+    <p>Die Verarbeitung personenbezogener Daten erfolgt gemäß unserer <a href="impressum.html">Datenschutzerklärung</a> und den Bestimmungen der DSGVO.</p>
+  </div>
+  <hr class="divider"/>
+
+  <div class="section">
+    <div class="section-num">10</div>
+    <h2>Gerichtsstand und anwendbares Recht</h2>
+    <p>Es gilt ausschließlich österreichisches Recht unter Ausschluss des UN-Kaufrechts.</p>
+    <p>Für alle Streitigkeiten aus oder im Zusammenhang mit diesem Vertrag ist das sachlich zuständige Gericht in Bludenz, Vorarlberg, ausschließlich zuständig — sofern dem nicht zwingende gesetzliche Bestimmungen entgegenstehen.</p>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <p>© 2026 Tischlerei Auer · <a href="index.html">Startseite</a> · <a href="impressum.html">Impressum & Datenschutz</a> · <a href="agb.html">AGB</a></p>
+</footer>
+
+</body>
+</html>

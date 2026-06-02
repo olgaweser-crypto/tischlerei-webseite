@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tischlerei Auer – Ihre Idee. Unser Handwerk.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Tokens ─────────────────────────────────────────── */
+    :root {
+      --espresso:   #1F1E1C;
+      --bark:       #3B3835;
+      --walnut:     #6E6762;
+      --honey:      #9E8C7A;
+      --gold:       #BFB0A2;
+      --cream:      #F7F6F4;
+      --parchment:  #EFEEEB;
+      --fog:        #DDDBD7;
+      --white:      #FFFFFF;
+
+      --radius-sm:  4px;
+      --radius-md:  8px;
+      --radius-lg:  16px;
+
+      --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+      --rosegold:   #C4896A;
+    }
+
+    /* ─── Logo CSS ───────────────────────────────────────── */
+    .logo-css { display: inline-block; line-height: 1; }
+    .logo-css-title {
+      display: flex; align-items: baseline; gap: .5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 400;
+      letter-spacing: .18em; text-transform: uppercase;
+    }
+    .logo-css-name { color: var(--espresso); }
+    .logo-css-auer { color: var(--rosegold); }
+    .logo-css-divider {
+      width: 1px; height: 1.4em;
+      background: var(--fog);
+      display: inline-block; margin: 0 .2rem;
+    }
+    .logo-css-tagline {
+      display: flex; align-items: center; gap: .5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .72rem; font-weight: 400;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--walnut); margin-top: .3rem;
+    }
+    .logo-css-diamond {
+      width: 7px; height: 7px;
+      background: var(--rosegold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+    .logo-css-line {
+      flex: 1; max-width: 80px; height: 1px;
+      background: var(--rosegold);
+    }
+
+    /* Nav logo klein */
+    .nav .logo-css-title { font-size: 1.15rem; }
+    .nav .logo-css-tagline { font-size: .58rem; }
+    .nav .logo-css-diamond { width: 5px; height: 5px; }
+
+    /* About logo groß */
+    .about-logo .logo-css-title { font-size: 2.2rem; }
+    .about-logo .logo-css-tagline { font-size: .78rem; }
+
+    /* ─── Reset ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--cream);
+      color: var(--espresso);
+      overflow-x: hidden;
+    }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── Typography helpers ─────────────────────────────── */
+    .serif { font-family: 'Cormorant Garamond', serif; }
+    h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.1; }
+    p { line-height: 1.7; color: var(--walnut); }
+
+    /* ─── Utility ────────────────────────────────────────── */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+    .section { padding: 6rem 0; }
+    .label {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--honey);
+      margin-bottom: 1rem;
+    }
+
+    /* ─── NAV ────────────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--white);
+      box-shadow: 0 2px 20px rgba(26,23,20,.1);
+    }
+    .nav-top {
+      display: flex; justify-content: center; align-items: center;
+      padding: .6rem 2rem;
+      border-bottom: 1px solid var(--fog);
+    }
+    .nav-logo { display: block; line-height: 0; }
+    .nav-logo img {
+      height: 70px; width: auto; max-width: min(420px, 70vw);
+      object-fit: contain;
+    }
+    .nav-bottom {
+      display: flex; align-items: center; justify-content: center;
+      position: relative; padding: 0 2rem;
+    }
+    .nav-links { display: flex; gap: 0; list-style: none; }
+    .nav-links a {
+      display: block;
+      font-size: .78rem; font-weight: 500; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--bark);
+      padding: .8rem 1.4rem;
+      position: relative; transition: color .2s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0;
+      left: 1.4rem; right: 1.4rem; height: 2px;
+      background: var(--honey);
+      transform: scaleX(0); transition: transform .2s var(--ease-out);
+    }
+    .nav-links a:hover { color: var(--honey); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      position: absolute; right: 2rem;
+      background: var(--honey); color: var(--white);
+      padding: .45rem 1.1rem;
+      border-radius: var(--radius-sm);
+      font-size: .75rem; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: background .2s, transform .15s; cursor: pointer;
+    }
+    .nav-cta:hover { background: var(--walnut); transform: translateY(-1px); }
+
+    /* Mobile nav toggle */
+    .burger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: .5rem; border: none; background: none;
+      flex-shrink: 0;
+    }
+    .burger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--bark); transition: all .3s;
+    }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .hero {
+      min-height: 100dvh;
+      background: var(--espresso);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 12rem 4rem 6rem 5rem;
+      z-index: 2; position: relative;
+    }
+    .hero-eyebrow {
+      font-size: .7rem; font-weight: 600; letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 32px; height: 1px; background: var(--gold);
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 5vw, 5rem);
+      color: var(--cream); line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero-desc {
+      font-size: 1rem; line-height: 1.8;
+      color: var(--fog); max-width: 380px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--honey);
+      color: var(--white);
+      padding: .9rem 2.2rem;
+      border-radius: var(--radius-sm);
+      font-size: .9rem; font-weight: 600; letter-spacing: .04em;
+      transition: background .2s, transform .15s;
+      cursor: pointer; border: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+    .btn-ghost {
+      border: 1px solid rgba(201,136,58,.4);
+      color: var(--cream);
+      padding: .9rem 2.2rem;
+      border-radius: var(--radius-sm);
+      font-size: .9rem; font-weight: 500;
+      transition: border-color .2s, color .2s, transform .15s;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+    .hero-right {
+      position: relative; overflow: hidden;
+    }
+    .hero-img {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #2E2C29 0%, #4A4844 40%, #5E5C58 100%);
+      position: relative;
+    }
+    .hero-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, var(--espresso) 0%, transparent 30%);
+    }
+    /* Placeholder image pattern */
+    .hero-img-inner {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; color: rgba(255,255,255,.25);
+      letter-spacing: .1em;
+    }
+    .hero-badge {
+      position: absolute; bottom: 3rem; left: -1.5rem;
+      background: var(--honey);
+      color: var(--white);
+      padding: 1.25rem 1.75rem;
+      border-radius: var(--radius-md);
+      z-index: 3;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    }
+    .hero-badge-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem; font-weight: 700; line-height: 1;
+    }
+    .hero-badge-text { font-size: .75rem; opacity: .85; margin-top: .2rem; }
+
+    /* Texture overlay */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      opacity: .5;
+    }
+
+    /* ─── INTRO STRIP ────────────────────────────────────── */
+    .intro-strip {
+      background: var(--honey);
+      padding: 1.5rem 2.5rem;
+      display: flex; justify-content: center; align-items: center;
+      gap: 4rem; flex-wrap: wrap;
+    }
+    .intro-stat { text-align: center; }
+    .intro-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--white); line-height: 1;
+    }
+    .intro-stat-label {
+      font-size: .75rem; font-weight: 500;
+      color: rgba(255,255,255,.8);
+      letter-spacing: .08em; margin-top: .25rem;
+    }
+    .intro-divider { width: 1px; height: 48px; background: rgba(255,255,255,.3); }
+
+    /* ─── ABOUT ──────────────────────────────────────────── */
+    .about { background: var(--white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-main {
+      width: 100%; aspect-ratio: 4/5;
+      background: linear-gradient(160deg, #3B3835, #6E6762);
+      border-radius: var(--radius-lg);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      color: rgba(255,255,255,.2); font-size: .9rem; letter-spacing: .1em;
+      overflow: hidden; position: relative;
+    }
+    .about-img-accent {
+      position: absolute; bottom: -2rem; right: -2rem;
+      width: 55%; aspect-ratio: 1;
+      background: var(--parchment);
+      border-radius: var(--radius-lg);
+      border: 6px solid var(--white);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .about-img-accent-inner {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #9E8C7A, #3B3835);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      color: rgba(255,255,255,.25); font-size: .8rem; letter-spacing: .1em;
+    }
+    .about-text h2 { font-size: clamp(2.2rem, 3.5vw, 3.2rem); margin-bottom: 1.5rem; }
+    .about-text p { margin-bottom: 1.2rem; }
+    .about-values {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem; margin-top: 2.5rem;
+    }
+    .about-value {
+      padding: 1.25rem;
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--honey);
+    }
+    .about-value-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 600;
+      margin-bottom: .3rem;
+      color: var(--espresso);
+    }
+    .about-value p { font-size: .85rem; margin: 0; }
+
+    /* ─── SERVICES ───────────────────────────────────────── */
+    .services { background: var(--espresso); }
+    .services .label { color: var(--gold); }
+    .services h2 { color: var(--cream); }
+    .services-intro { color: var(--fog); max-width: 540px; margin: 1rem 0 3rem; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(201,136,58,.15);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      transition: background .2s, border-color .2s, transform .2s var(--ease-out);
+    }
+    .service-card:hover {
+      background: rgba(201,136,58,.08);
+      border-color: rgba(201,136,58,.4);
+      transform: translateY(-4px);
+    }
+    .service-icon {
+      width: 48px; height: 48px;
+      background: rgba(201,136,58,.15);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .service-icon svg { width: 24px; height: 24px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 600;
+      color: var(--cream); margin-bottom: .75rem;
+    }
+    .service-desc { font-size: .875rem; color: var(--fog); line-height: 1.7; }
+
+    /* ─── GALLERY SECTIONS ───────────────────────────────── */
+    .gallery-section { background: var(--parchment); }
+    .gallery-section:nth-child(even) { background: var(--white); }
+
+    .gallery-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 2.5rem;
+    }
+    .gallery-link {
+      font-size: .85rem; font-weight: 600; letter-spacing: .05em;
+      color: var(--honey);
+      display: flex; align-items: center; gap: .5rem;
+      transition: gap .2s;
+    }
+    .gallery-link:hover { gap: .8rem; }
+    .gallery-link svg { width: 16px; height: 16px; stroke: var(--honey); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Bento-style gallery grids */
+    .gallery-bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 80px;
+      gap: 1rem;
+    }
+    .g-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: linear-gradient(135deg, #C8C4BE, #E0DDD8);
+      position: relative;
+      cursor: pointer;
+      transition: transform .25s var(--ease-out), box-shadow .25s;
+    }
+    .g-item:hover { transform: scale(1.02); box-shadow: 0 12px 40px rgba(30,18,10,.25); }
+    .g-item::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(30,18,10,.6), transparent 50%);
+      opacity: 0; transition: opacity .25s;
+    }
+    .g-item:hover::after { opacity: 1; }
+    .g-item-label {
+      position: absolute; bottom: .75rem; left: .75rem;
+      font-size: .7rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: white;
+      opacity: 0; z-index: 2;
+      transition: opacity .25s;
+    }
+    .g-item:hover .g-item-label { opacity: 1; }
+
+    /* Küchen */
+    .g-k1 { grid-column: 1/5; grid-row: 1/4; }
+    .g-k2 { grid-column: 5/9; grid-row: 1/3; }
+    .g-k3 { grid-column: 9/13; grid-row: 1/4; }
+    .g-k4 { grid-column: 5/7; grid-row: 3/5; }
+    .g-k5 { grid-column: 7/9; grid-row: 3/5; }
+    .g-k6 { grid-column: 1/5; grid-row: 4/6; }
+    .g-k7 { grid-column: 9/13; grid-row: 4/6; }
+
+    /* Möbel */
+    .g-m1 { grid-column: 1/4; grid-row: 1/3; }
+    .g-m2 { grid-column: 4/8; grid-row: 1/4; }
+    .g-m3 { grid-column: 8/13; grid-row: 1/3; }
+    .g-m4 { grid-column: 1/4; grid-row: 3/5; }
+    .g-m5 { grid-column: 8/10; grid-row: 3/5; }
+    .g-m6 { grid-column: 10/13; grid-row: 3/5; }
+
+    /* Treppen */
+    .g-t1 { grid-column: 1/6; grid-row: 1/5; }
+    .g-t2 { grid-column: 6/9; grid-row: 1/3; }
+    .g-t3 { grid-column: 9/13; grid-row: 1/3; }
+    .g-t4 { grid-column: 6/9; grid-row: 3/5; }
+    .g-t5 { grid-column: 9/13; grid-row: 3/5; }
+
+    /* Gallery item color variations */
+    .g-item:nth-child(2n) { background: linear-gradient(135deg, #BFBBB5, #D8D5CF); }
+    .g-item:nth-child(3n) { background: linear-gradient(135deg, #CCCAC5, #E5E3DF); }
+    .g-item:nth-child(4n) { background: linear-gradient(135deg, #B8B4AE, #D0CCC6); }
+
+    /* ─── TEAM ───────────────────────────────────────────── */
+    .team { background: var(--espresso); }
+    .team .label { color: var(--gold); }
+    .team h2 { color: var(--cream); margin-bottom: .75rem; }
+    .team-intro { color: var(--fog); max-width: 480px; margin-bottom: 3.5rem; }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 220px);
+      gap: 4rem;
+      justify-content: center;
+    }
+    .team-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .team-photo {
+      aspect-ratio: 4/5;
+      background: linear-gradient(160deg, #3B3835, #6E6762);
+      display: flex; align-items: flex-end;
+      position: relative;
+      transition: transform .4s var(--ease-out);
+    }
+    .team-card:hover .team-photo { transform: scale(1.04); }
+    .team-photo-inner {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem; font-weight: 300; color: rgba(255,255,255,.2);
+      letter-spacing: .05em;
+    }
+    .team-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(30,18,10,.95), transparent);
+      padding: 2rem 1.25rem 1.25rem;
+    }
+    .team-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 600;
+      color: var(--cream); margin-bottom: .2rem;
+    }
+    .team-role {
+      font-size: .75rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .team-card:nth-child(2) .team-photo { background: linear-gradient(160deg, #4A4845, #7A7672); }
+    .team-card:nth-child(3) .team-photo { background: linear-gradient(160deg, #2E2C2A, #58554F); }
+    .team-card:nth-child(4) .team-photo { background: linear-gradient(160deg, #424040, #706C68); }
+
+    /* ─── CONTACT ────────────────────────────────────────── */
+    .contact { background: var(--parchment); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+    }
+    .contact-info h2 { font-size: clamp(2rem, 3vw, 3rem); margin-bottom: 1rem; }
+    .contact-info > p { margin-bottom: 2.5rem; }
+
+    .contact-blocks { display: flex; flex-direction: column; gap: 1.25rem; }
+    .contact-block {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1.25rem;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--fog);
+    }
+    .contact-block-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: var(--honey);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .contact-block-icon svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .contact-block-title {
+      font-size: .7rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--honey);
+      margin-bottom: .3rem;
+    }
+    .contact-block-value { font-size: .95rem; color: var(--espresso); font-weight: 500; }
+    .contact-block-value small { display: block; font-size: .8rem; color: var(--walnut); font-weight: 400; margin-top: .1rem; }
+
+    /* Map placeholder */
+    .contact-map {
+      width: 100%; margin-top: 1.5rem;
+      aspect-ratio: 16/7;
+      background: linear-gradient(135deg, var(--fog), var(--parchment));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--fog);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: .5rem;
+      color: var(--walnut); font-size: .85rem;
+      overflow: hidden; position: relative;
+    }
+    .contact-map svg { width: 32px; height: 32px; stroke: var(--honey); fill: none; stroke-width: 1.5; opacity: .7; }
+
+    /* Form */
+    .contact-form {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      border: 1px solid var(--fog);
+    }
+    .contact-form h3 {
+      font-size: 1.75rem; margin-bottom: .5rem;
+    }
+    .contact-form > p { font-size: .875rem; margin-bottom: 2rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-field { margin-bottom: 1.25rem; }
+    .form-field label {
+      display: block;
+      font-size: .75rem; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--walnut);
+      margin-bottom: .45rem;
+    }
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1.5px solid var(--fog);
+      border-radius: var(--radius-sm);
+      font-family: 'Outfit', sans-serif;
+      font-size: .9rem; color: var(--espresso);
+      background: var(--cream);
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+      appearance: none;
+    }
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus {
+      border-color: var(--honey);
+      box-shadow: 0 0 0 3px rgba(201,136,58,.15);
+    }
+    .form-field textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      width: 100%;
+      background: var(--honey);
+      color: white;
+      border: none; cursor: pointer;
+      padding: 1rem;
+      border-radius: var(--radius-sm);
+      font-family: 'Outfit', sans-serif;
+      font-size: .95rem; font-weight: 600;
+      letter-spacing: .04em;
+      transition: background .2s, transform .15s;
+    }
+    .form-submit:hover { background: var(--gold); transform: translateY(-1px); }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    .footer {
+      background: var(--espresso);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1280px; margin: 0 auto;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem; padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(201,136,58,.12);
+    }
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 600;
+      color: var(--cream); margin-bottom: .75rem;
+    }
+    .footer-brand-name span { color: var(--gold); }
+    .footer-brand-desc {
+      font-size: .85rem; color: var(--fog); line-height: 1.7;
+      max-width: 280px; margin-bottom: 1.5rem;
+    }
+    .footer-col-title {
+      font-size: .7rem; font-weight: 600; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+    .footer-links a { font-size: .875rem; color: var(--fog); transition: color .2s; }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 2rem; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-bottom p { font-size: .8rem; color: rgba(214,206,194,.5); }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a { font-size: .8rem; color: rgba(214,206,194,.5); transition: color .2s; }
+    .footer-legal a:hover { color: var(--fog); }
+
+    /* ─── ANIMATIONS ─────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { opacity: 0; }
+    .fade-up.visible {
+      animation: fadeUp .7s var(--ease-out) both;
+    }
+    .fade-up:nth-child(2).visible { animation-delay: .1s; }
+    .fade-up:nth-child(3).visible { animation-delay: .2s; }
+    .fade-up:nth-child(4).visible { animation-delay: .3s; }
+
+    /* Hero entrance */
+    .hero-left > * {
+      opacity: 0;
+      animation: fadeUp .8s var(--ease-out) both;
+    }
+    .hero-eyebrow { animation-delay: .1s !important; }
+    .hero h1     { animation-delay: .25s !important; }
+    .hero-desc   { animation-delay: .4s !important; }
+    .hero-actions{ animation-delay: .55s !important; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 9rem 2rem 4rem; }
+      .hero-right { height: 300px; }
+      .hero-badge { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-img-wrap { display: block; }
+      .about-img-main { aspect-ratio: unset; height: auto; border-radius: var(--radius-lg); overflow: hidden; }
+      .about-img-main img { width: 100%; height: auto !important; object-fit: contain !important; object-position: top !important; }
+      .about-img-accent { display: none; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 4rem 0; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .burger { display: flex; }
+      .nav-top {
+        justify-content: space-between;
+        align-items: center;
+        padding: .5rem 1rem;
+      }
+      .nav-bottom { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .gallery-bento { grid-auto-rows: 60px; }
+      #galerie-vorschau .container > div:last-child { grid-template-columns: repeat(2,1fr) !important; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .intro-strip { gap: 2rem; }
+      .intro-divider { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.4rem; }
+      .team-grid { grid-template-columns: 1fr; }
+      .gallery-bento { gap: .5rem; grid-auto-rows: 50px; }
+    }
+
+    /* ─── MOBILE NAV ─────────────────────────────────────── */
+    .mobile-nav {
+      position: fixed; inset: 0; z-index: 99;
+      background: var(--espresso);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 2rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+    }
+    .mobile-nav.open { opacity: 1; pointer-events: auto; }
+    .mobile-nav a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem; font-weight: 600; color: var(--cream);
+      transition: color .2s;
+    }
+    .mobile-nav a:hover { color: var(--gold); }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute; top: -40px; left: 1rem;
+      background: var(--honey); color: white;
+      padding: .5rem 1rem; border-radius: var(--radius-sm);
+      font-size: .875rem; font-weight: 600;
+      transition: top .2s; z-index: 200;
+    }
+    .skip-link:focus { top: 1rem; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Hauptnavigation">
+  <div class="nav-top">
+    <a href="#" class="nav-logo">
+      <img src="logo-transparent.png" alt="Tischlerei Auer" />
+    </a>
+    <button class="burger" aria-label="Menü öffnen" aria-expanded="false" id="burgerBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-bottom">
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="galerie.html#sec-moebel">Galerie</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta" aria-label="Zur Kontaktseite">Anfrage stellen</a>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Mobilnavigation">
+  <a href="#leistungen" onclick="closeNav()">Leistungen</a>
+  <a href="#galerien" onclick="closeNav()">Galerien</a>
+  <a href="#team" onclick="closeNav()">Team</a>
+  <a href="#kontakt" onclick="closeNav()">Kontakt</a>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" aria-label="Willkommen">
+  <div class="hero-left">
+    <div class="hero-eyebrow" aria-hidden="true">Tischlerei Auer · Seit 1997</div>
+    <h1>Ihre Idee. <em>Unser</em> Handwerk.</h1>
+    <p class="hero-desc">Wir verbinden traditionelles Handwerk mit modernem Design — von Einzelstücken bis zur kompletten Raumausstattung. Individuell, dauerhaft und mit Leidenschaft gefertigt.</p>
+    <div class="hero-actions">
+      <a href="#galerien" class="btn-primary">Unsere Arbeiten</a>
+      <a href="#kontakt" class="btn-ghost">Kontakt aufnehmen</a>
+    </div>
+  </div>
+  <div class="hero-right" aria-hidden="true">
+    <div class="hero-img" style="background:none;">
+      <img src="bilder/erste-foto.jpg" alt="Tischlerei Auer" style="width:100%;height:100%;object-fit:cover;display:block;" />
+    </div>
+  </div>
+</section>
+
+<!-- INTRO STRIP -->
+<div class="intro-strip" aria-label="Kennzahlen">
+  <div class="intro-stat">
+    <div class="intro-stat-num">28+</div>
+    <div class="intro-stat-label">Jahre Erfahrung</div>
+  </div>
+  <div class="intro-divider" aria-hidden="true"></div>
+  <div class="intro-stat">
+    <div class="intro-stat-num">1997</div>
+    <div class="intro-stat-label">Gründungsjahr</div>
+  </div>
+  <div class="intro-divider" aria-hidden="true"></div>
+  <div class="intro-stat">
+    <div class="intro-stat-num">Bludenz</div>
+    <div class="intro-stat-label">Vorarlberg, Österreich</div>
+  </div>
+  <div class="intro-divider" aria-hidden="true"></div>
+  <div class="intro-stat">
+    <div class="intro-stat-num">100%</div>
+    <div class="intro-stat-label">Kundenzufriedenheit</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section about" aria-labelledby="about-title">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap" aria-hidden="true">
+        <div class="about-img-main" style="background:none;overflow:hidden;">
+          <img src="bilder/werkstatt.jpg" alt="Werkstatt Tischlerei Auer" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+      </div>
+      <div class="about-text fade-up">
+        <span class="label">Über uns</span>
+        <h2 id="about-title">Handwerk, das Bestand hat.</h2>
+        <p>Seit 1997 führen wir in Bludenz einen Familienbetrieb, der für Qualität und Individualität steht. Was Rudolf Auer begann, führt Daniel Auer heute mit derselben Leidenschaft und Präzision weiter.</p>
+        <p>Jedes Stück entsteht nach Ihren Wünschen — von der ersten Idee bis zur fertigen Montage. Wir verbinden traditionelles Tischlerhandwerk mit modernem Design und schaffen Einrichtungen, die wirklich zu Ihnen passen.</p>
+        <div class="about-values">
+          <div class="about-value fade-up">
+            <div class="about-value-title">Qualität</div>
+            <p>Nur FSC-zertifizierte Hölzer, verarbeitet auf höchstem Niveau.</p>
+          </div>
+          <div class="about-value fade-up">
+            <div class="about-value-title">Individualität</div>
+            <p>Jedes Stück entsteht nach Ihren Wünschen und Ideen.</p>
+          </div>
+          <div class="about-value fade-up">
+            <div class="about-value-title">Nachhaltigkeit</div>
+            <p>Regionale Lieferketten, emissionsarme Lacke und Öle.</p>
+          </div>
+          <div class="about-value fade-up">
+            <div class="about-value-title">Langlebigkeit</div>
+            <p>Handwerkliche Verbindungen, die Generationen überdauern.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="leistungen" aria-labelledby="services-title">
+  <div class="container">
+    <span class="label">Leistungen</span>
+    <h2 id="services-title" style="color:var(--cream); font-size:clamp(2rem,3.5vw,3rem); margin-bottom:.75rem;">Was wir für Sie schaffen.</h2>
+    <p class="services-intro">Von der Planung bis zur Montage — alles aus einer Hand. Wir beraten Sie gerne und erstellen ein unverbindliches Angebot.</p>
+    <div class="services-grid">
+
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/></svg>
+        </div>
+        <div class="service-title">Küchen</div>
+        <p class="service-desc">Maßgefertigte Küchen, perfekt abgestimmt auf Ihren Raum und Ihren Geschmack — vom modernen Purismus bis zur klassischen Landhausküche.</p>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg>
+        </div>
+        <div class="service-title">Möbel & Einbauschränke</div>
+        <p class="service-desc">Regale, Schränke, Kommoden und Sideboards — individuell geplant und handwerklich gefertigt für jedes Zimmer und jeden Stil.</p>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="service-title">Innenausbau</div>
+        <p class="service-desc">Wandverkleidungen, Deckengestaltung und Türen — wir gestalten Räume, die Charakter haben und wohlfühlen.</p>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M12 3v18"/><path d="M3 9h18"/><circle cx="7" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="17" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <div class="service-title">Garderoben</div>
+        <p class="service-desc">Der erste Eindruck beginnt im Eingangsbereich. Wir fertigen maßgeschneiderte Garderoben, die Ordnung, Stil und Persönlichkeit perfekt vereinen — vom schlichten Haken bis zur raumhohen Einbaulösung.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALERIEN -->
+<div id="galerien">
+
+  <!-- Galerie Titelbild -->
+  <div style="position:relative;width:100%;height:480px;overflow:hidden;">
+    <img src="bilder/unsere-arbeiten.jpg" alt="Unsere Arbeiten" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;" />
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,23,20,.3) 0%,rgba(26,23,20,.6) 100%);"></div>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;">
+      <span style="font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;">Tischlerei Auer</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);color:white;font-weight:400;line-height:1.1;">Unsere Arbeiten</h2>
+    </div>
+  </div>
+
+  <!-- Küchen -->
+
+  <!-- Möbel -->
+  <section class="section gallery-section" aria-labelledby="gal-moebel">
+    <div class="container">
+      <div class="gallery-header">
+        <div>
+          <span class="label">Galerie</span>
+          <h2 id="gal-moebel">Möbel & Einbauten</h2>
+        </div>
+        <a href="galerie.html#sec-moebel" class="gallery-link" aria-label="Alle Möbel ansehen">
+          Mehr ansehen
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <div class="gallery-bento" role="list" aria-label="Möbelgalerie">
+        <div class="g-item g-m1 fade-up" style="background:linear-gradient(135deg,#D4D2CE,#E8E6E2)" role="listitem" tabindex="0" aria-label="Regal aus Eiche"><span class="g-item-label">Eichenregal</span></div>
+        <div class="g-item g-m2 fade-up" style="background:linear-gradient(135deg,#C8C6C2,#DDDBD7)" role="listitem" tabindex="0" aria-label="Einbauschrank"><span class="g-item-label">Einbauschrank</span></div>
+        <div class="g-item g-m3 fade-up" style="background:linear-gradient(135deg,#CECCC8,#E2E0DC)" role="listitem" tabindex="0" aria-label="Sideboard"><span class="g-item-label">Sideboard</span></div>
+        <div class="g-item g-m4 fade-up" style="background:linear-gradient(135deg,#C2C0BC,#D8D6D2)" role="listitem" tabindex="0" aria-label="Bücherwand"><span class="g-item-label">Bücherwand</span></div>
+        <div class="g-item g-m5 fade-up" style="background:linear-gradient(135deg,#D8D6D2,#ECEAE6)" role="listitem" tabindex="0" aria-label="Kommode"><span class="g-item-label">Kommode</span></div>
+        <div class="g-item g-m6 fade-up" style="background:linear-gradient(135deg,#CCCAC6,#E0DEDB)" role="listitem" tabindex="0" aria-label="Schreibtisch"><span class="g-item-label">Schreibtisch</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Treppen -->
+
+</div>
+
+<!-- WOODNEST MODAL -->
+<div id="woodnest-modal" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(26,23,20,.95);overflow-y:auto;" onclick="if(event.target===this)this.style.display='none'">
+  <div style="max-width:1100px;margin:0 auto;padding:5rem 2rem 4rem;">
+    <button onclick="document.getElementById('woodnest-modal').style.display='none'"
+      style="position:fixed;top:1.5rem;right:1.5rem;background:rgba(255,255,255,.1);border:none;color:white;width:44px;height:44px;border-radius:50%;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);">✕</button>
+
+    <span style="display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Projekt 2025</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);color:white;margin-bottom:1rem;">Mountain Woodnest</h2>
+    <p style="color:var(--fog);max-width:660px;margin-bottom:3rem;font-size:1rem;line-height:1.8;">"We are grateful for the trust our clients placed in us, allowing us to realize this special project in 2025. The 'Mountain Woodnest' is a creative, bold and beautifully crafted piece of woodworking - made with heart, passion, and attention to every detail."</p>
+
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:3rem;" class="wn-steps">
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(201,136,58,.15);border-radius:var(--radius-md);padding:1.25rem;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--gold);opacity:.5;line-height:1;">01</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:white;margin:.5rem 0 .4rem;font-weight:600;">Wood Preparation</div>
+        <p style="font-size:.8rem;color:var(--fog);margin:0;line-height:1.6;">Each piece of spruce wood is carefully inspected and prepared.</p>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(201,136,58,.15);border-radius:var(--radius-md);padding:1.25rem;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--gold);opacity:.5;line-height:1;">02</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:white;margin:.5rem 0 .4rem;font-weight:600;">Gluing Components</div>
+        <p style="font-size:.8rem;color:var(--fog);margin:0;line-height:1.6;">Beams and wooden parts are joined with craftsmanship.</p>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(201,136,58,.15);border-radius:var(--radius-md);padding:1.25rem;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--gold);opacity:.5;line-height:1;">03</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:white;margin:.5rem 0 .4rem;font-weight:600;">Preparing Pieces</div>
+        <p style="font-size:.8rem;color:var(--fog);margin:0;line-height:1.6;">Each piece is planed, sanded, brushed and hand-prepared.</p>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(201,136,58,.15);border-radius:var(--radius-md);padding:1.25rem;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--gold);opacity:.5;line-height:1;">04</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:white;margin:.5rem 0 .4rem;font-weight:600;">Shaping</div>
+        <p style="font-size:.8rem;color:var(--fog);margin:0;line-height:1.6;">The wood takes its final shape — carved and refined.</p>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(201,136,58,.15);border-radius:var(--radius-md);padding:1.25rem;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--gold);opacity:.5;line-height:1;">05</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:white;margin:.5rem 0 .4rem;font-weight:600;">Assembly</div>
+        <p style="font-size:.8rem;color:var(--fog);margin:0;line-height:1.6;">All pieces come together on site — ready to be enjoyed.</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:1rem;margin-bottom:3rem;">
+      <div style="grid-column:1/3;grid-row:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn1.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn2.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn3.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn4.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn5.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="grid-column:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn6.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn7.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn8.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn9.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn10.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn11.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn12.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+    </div>
+
+    <div style="text-align:center;padding:2rem 0;">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-style:italic;color:var(--gold);max-width:600px;margin:0 auto;line-height:1.6;">"Love grows best in homes made of wood...."</p>
+    </div>
+  </div>
+</div>
+
+<!-- CHALET 1551 MODAL -->
+<div id="chalet-modal" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(26,23,20,.95);overflow-y:auto;" onclick="if(event.target===this)this.style.display='none'">
+  <div style="max-width:1100px;margin:0 auto;padding:5rem 2rem 4rem;">
+    <button onclick="document.getElementById('chalet-modal').style.display='none'"
+      style="position:fixed;top:1.5rem;right:1.5rem;background:rgba(255,255,255,.1);border:none;color:white;width:44px;height:44px;border-radius:50%;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);">✕</button>
+    <span style="display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Projekt · Lech</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);color:white;margin-bottom:1rem;">Das Chalet 1551 Lech</h2>
+    <p style="color:var(--fog);max-width:660px;margin-bottom:3rem;font-size:1rem;line-height:1.8;">"Rustikales Holz, Wärme und die Ruhe der Berge - ein Rückzugsort zum Verweilen..."</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:1rem;margin-bottom:3rem;">
+      <div style="grid-column:1/3;grid-row:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch1.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch2.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch3.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch4.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch5.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="grid-column:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch6.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch7.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch8.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch9.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch10.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJEKTE MODAL -->
+<div id="projekte-modal" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(26,23,20,.95);overflow-y:auto;" onclick="if(event.target===this)this.style.display='none'">
+  <div style="max-width:1100px;margin:0 auto;padding:5rem 2rem 4rem;">
+    <button onclick="document.getElementById('projekte-modal').style.display='none'"
+      style="position:fixed;top:1.5rem;right:1.5rem;background:rgba(255,255,255,.1);border:none;color:white;width:44px;height:44px;border-radius:50%;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);">✕</button>
+    <span style="display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Unsere Arbeiten</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);color:white;margin-bottom:1rem;">Projekte</h2>
+    <p style="color:var(--fog);max-width:660px;margin-bottom:1rem;font-size:1rem;line-height:1.8;">"Jedes Projekt erzählt eine Geschichte. Hier finden Sie einen Einblick in unsere Arbeiten und die Vielfalt unseres Handwerks."</p>
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(201,136,58,.15);border-radius:var(--radius-md);padding:1.5rem;margin-bottom:2.5rem;max-width:660px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:white;font-weight:600;margin-bottom:.5rem;">Fichtendecke wie vor 100 Jahren</div>
+      <p style="font-size:.85rem;color:var(--fog);margin:0;line-height:1.7;">Meister Tischler Günter Müller fertigte diese Decke handwerklich an. Mit Senior Rudolf Auer entstand im kleinen Team ein Werk, das den Charakter von früher bewahrt und gleichzeitig neu gefertigt ist.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:1rem;">
+      <div style="grid-column:1/3;grid-row:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr1.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr2.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr3.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr4.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr5.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="grid-column:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr6.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr7.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr8.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr9.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr10.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr11.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr12.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="grid-column:3/5;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr13.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr14.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr15.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+    </div>
+  </div>
+</div>
+
+<!-- GALERIE VORSCHAU -->
+<section class="section" style="background:var(--parchment);" id="galerie-vorschau">
+  <div class="container">
+    <span class="label">Unsere Arbeiten</span>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;">
+      <h2 style="font-size:clamp(2rem,3.5vw,3rem);">Einblick in unsere Arbeiten</h2>
+      <a href="galerie.html" style="display:inline-flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:600;letter-spacing:.05em;color:var(--honey);transition:gap .2s;">
+        Alle Fotos ansehen
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;">
+      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;cursor:pointer;" onclick="location.href='galerie.html'">
+        <img src="bilder/moebel/moebel26.jpg" alt="Birkenholz Raumteiler" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+      </div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;cursor:pointer;" onclick="location.href='galerie.html'">
+        <img src="bilder/moebel/moebel4.jpg" alt="Wandschrank" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+      </div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;cursor:pointer;" onclick="location.href='galerie.html'">
+        <img src="bilder/moebel/moebel23.jpg" alt="Garderobe" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+      </div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;cursor:pointer;" onclick="location.href='galerie.html'">
+        <img src="bilder/moebel/moebel24.jpg" alt="Bar" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section team" id="team" aria-labelledby="team-title">
+  <div class="container">
+    <span class="label">Unser Team</span>
+    <h2 id="team-title">Die Menschen hinter dem Holz.</h2>
+    <p class="team-intro">Erfahrene Handwerker, leidenschaftliche Gestalter — unser Team bringt jahrzehntelange Expertise und echte Freude am Handwerk in jedes Projekt.</p>
+    <div class="team-grid">
+
+      <div class="team-card fade-up">
+        <div class="team-photo" style="background:none;">
+          <img src="bilder/team-daniel.png" alt="Daniel Auer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+          <div class="team-overlay">
+            <div class="team-name">Daniel Auer</div>
+            <div class="team-role">Geschäftsführer · Tischler</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card fade-up">
+        <div class="team-photo" style="background:none;">
+          <img src="bilder/team-guenter.png" alt="Günter Müller" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+          <div class="team-overlay">
+            <div class="team-name">Günter Müller</div>
+            <div class="team-role">Tischlermeister</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card fade-up">
+        <div class="team-photo" style="background:#1A1714;">
+          <img src="bilder/olga-auer.png" alt="Olga Auer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(0.75) contrast(1.1);" />
+          <div class="team-overlay"></div>
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center top, transparent 35%, rgba(26,23,20,0.75) 100%);"></div>
+          <div class="team-overlay">
+            <div class="team-name">Olga Auer</div>
+            <div class="team-role">Webdesign · Fotografie</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="kontakt" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="label">Kontakt</span>
+        <h2 id="contact-title">Wir freuen uns auf Ihre Anfrage.</h2>
+        <p>Ob Neubau, Renovierung oder ein besonderes Einzelstück — sprechen Sie uns an. Wir erstellen Ihnen ein unverbindliches Angebot.</p>
+
+        <div class="contact-blocks">
+          <div class="contact-block">
+            <div class="contact-block-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-block-title">Adresse</div>
+              <div class="contact-block-value">
+                Klarenbrunnstraße 113
+                <small>6700 Bludenz, Österreich</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-block">
+            <div class="contact-block-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27l3-.05a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.09a16 16 0 0 0 8 8l.93-.93a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-block-title">Telefon</div>
+              <div class="contact-block-value">
+                <a href="tel:+43650800675 3">0650 / 800 67 53</a>
+                <small>Mo–Fr: 08:00 – 12:00 &amp; 13:00 – 17:00 Uhr</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-block">
+            <div class="contact-block-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-block-title">E-Mail</div>
+              <div class="contact-block-value">
+                <a href="mailto:info@tischlereiauer.at">info@tischlereiauer.at</a>
+                <small>Antwort innerhalb von 24 Stunden</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-block">
+            <div class="contact-block-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact-block-title">Öffnungszeiten</div>
+              <div class="contact-block-value">
+                Mo – Fr: 08:00 – 12:00 Uhr
+                <small>Mo – Fr: 13:00 – 17:00 Uhr · Sa &amp; So: geschlossen</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-map" style="padding:0;overflow:hidden;" aria-label="Standort Tischlerei Auer auf Google Maps">
+          <iframe
+            src="https://maps.google.com/maps?q=Klarenbrunnstra%C3%9Fe+113,+6700+Bludenz,+%C3%96sterreich&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%" height="100%" style="border:0;display:block;min-height:260px;"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Tischlerei Auer auf Google Maps">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="contact-form" role="form" aria-labelledby="form-title">
+        <h3 id="form-title" class="serif">Nachricht senden</h3>
+        <p>Schildern Sie uns kurz Ihr Vorhaben — wir melden uns umgehend bei Ihnen.</p>
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="vorname">Vorname <span aria-label="Pflichtfeld">*</span></label>
+              <input type="text" id="vorname" name="vorname" autocomplete="given-name" required placeholder="Max" />
+            </div>
+            <div class="form-field">
+              <label for="nachname">Nachname <span aria-label="Pflichtfeld">*</span></label>
+              <input type="text" id="nachname" name="nachname" autocomplete="family-name" required placeholder="Mustermann" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="email">E-Mail <span aria-label="Pflichtfeld">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" required placeholder="max@beispiel.de" />
+          </div>
+          <div class="form-field">
+            <label for="telefon">Telefon</label>
+            <input type="tel" id="telefon" name="telefon" autocomplete="tel" placeholder="+49 000 000 000" />
+          </div>
+          <div class="form-field">
+            <label for="kategorie">Bereich <span aria-label="Pflichtfeld">*</span></label>
+            <select id="kategorie" name="kategorie" required>
+              <option value="" disabled selected>Bitte wählen…</option>
+              <option>Küche</option>
+              <option>Möbel &amp; Einbauschränke</option>
+              <option>Innenausbau</option>
+              <option>Treppe</option>
+              <option>Sonstiges</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="nachricht">Nachricht <span aria-label="Pflichtfeld">*</span></label>
+            <textarea id="nachricht" name="nachricht" required placeholder="Beschreiben Sie Ihr Projekt…"></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">Anfrage absenden</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name serif">Tischlerei<span>.</span>Auer</div>
+        <p class="footer-brand-desc">Traditionelles Handwerk trifft modernes Design — seit 1997 in Bludenz, Vorarlberg. Individuell, dauerhaft und mit Leidenschaft.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="galerie.html#sec-moebel">Galerie</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+      <div>
+        <div class="footer-col-title">Kontakt</div>
+        <ul class="footer-links">
+          <li><a href="tel:+436508006753">0650 / 800 67 53</a></li>
+          <li><a href="mailto:info@tischlereiauer.at">info@tischlereiauer.at</a></li>
+          <li style="color:var(--fog);font-size:.875rem">Klarenbrunnstraße 113<br>6700 Bludenz</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Tischlerei Auer · Alle Rechte vorbehalten</p>
+      <div class="footer-legal">
+        <a href="impressum.html">Impressum & Datenschutz</a>
+        <a href="agb.html">AGB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav
+  const burgerBtn = document.getElementById('burgerBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  function closeNav() {
+    mobileNav.classList.remove('open');
+    burgerBtn.setAttribute('aria-expanded', 'false');
+  }
+  burgerBtn.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    burgerBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
+
+  // Scroll animations (IntersectionObserver)
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  fadeEls.forEach(el => observer.observe(el));
+
+  // Reduced motion
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
+    document.documentElement.style.setProperty('--ease-out', 'linear');
+    fadeEls.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+  }
+
+  // Form submission
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    submitBtn.textContent = 'Wird gesendet…';
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '.7';
+    setTimeout(() => {
+      submitBtn.textContent = 'Nachricht gesendet ✓';
+      submitBtn.style.background = '#3a7d44';
+      form.reset();
+    }, 1500);
+  });
+
+  // Sticky nav shrink
+  const nav = document.querySelector('.nav');
+  window.addEventListener('scroll', () => {
+    nav.style.padding = window.scrollY > 60 ? '.75rem 2.5rem' : '1.25rem 2.5rem';
+  }, { passive: true });
+</script>
+</body>
+</html>
