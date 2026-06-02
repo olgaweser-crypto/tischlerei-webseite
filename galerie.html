@@ -137,11 +137,45 @@
 
 <main style="padding-bottom:4rem;">
 
-  <!-- Küchen -->
-
-
-  <!-- Mountain Woodnest -->
-  <!-- Projekte -->
+  <section class="galerie-section container" id="sec-alle" data-category="alle">
+    <div class="section-header">
+      <div>
+        <span class="label">Tischlerei Auer</span>
+        <h2>Einblick in unsere Arbeiten</h2>
+      </div>
+    </div>
+    <div class="foto-grid">
+      <div class="foto-item" onclick="openLightbox('alle',0)"><img src="galerie/1737285843432.jpg" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',1)"><img src="galerie/20250910_104602.jpg" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',2)"><img src="galerie/DSC02371.JPG" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',3)"><img src="galerie/DSC02521.JPG" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',4)"><img src="galerie/DSC02608.JPG" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',5)"><img src="galerie/DSC02699.JPG" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',6)"><img src="galerie/DSC03899~2.JPG" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',7)"><img src="galerie/DSC03933~2.JPG" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',8)"><img src="galerie/DSC04174~2.JPG" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',9)"><img src="galerie/DSC04181.JPG" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',10)"><img src="galerie/DSC04203.JPG" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',11)"><img src="galerie/IMG-20240801-WA0014.jpg" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',12)"><img src="galerie/IMG-20250119-WA0004.jpg" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',13)"><img src="galerie/IMG-20250119-WA0006.jpg" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',14)"><img src="galerie/IMG-20251107-WA0007.jpg" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',15)"><img src="galerie/IMG-20251108-WA0000.jpg" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',16)"><img src="galerie/IMG-20251128-WA0042.jpg" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',17)"><img src="galerie/IMG-20260312-WA0048.jpg" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',18)"><img src="galerie/IMG-20260414-WA0004.jpg" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',19)"><img src="galerie/IMG-20260414-WA0005.jpg" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',20)"><img src="galerie/IMG_20201130_151015.jpg" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',21)"><img src="galerie/IMG_20201205_093145.jpg" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',22)"><img src="galerie/IMG_20240801_141915_258.jpg" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',23)"><img src="galerie/IMG_2640.JPG" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',24)"><img src="galerie/K%C3%BCche%202.jpg" alt="Küche" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',25)"><img src="galerie/Salzburg%208.jpg" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',26)"><img src="galerie/Salzburg%2010.jpg" alt="Arbeit" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',27)"><img src="galerie/Wandschrank.jpg" alt="Wandschrank" loading="lazy" /></div>
+      <div class="foto-item" onclick="openLightbox('alle',28)"><img src="galerie/Waschtisch.jpg" alt="Waschtisch" loading="lazy" /></div>
+    </div>
+  </section>
 
 </main>
 
@@ -161,10 +195,37 @@
 
 <script>
   const galleries = {
-    moebel:   Array.from({length:26},(_,i)=>`bilder/moebel/moebel${i+1}.jpg`),
-    woodnest: Array.from({length:12},(_,i)=>`bilder/woodnest/wn${i+1}.jpg`),
-    chalet:   Array.from({length:10},(_,i)=>`bilder/chalet/ch${i+1}.jpg`),
-    projekte: Array.from({length:15},(_,i)=>`bilder/projekte/pr${i+1}.jpg`)
+    alle: [
+      'galerie/1737285843432.jpg',
+      'galerie/20250910_104602.jpg',
+      'galerie/DSC02371.JPG',
+      'galerie/DSC02521.JPG',
+      'galerie/DSC02608.JPG',
+      'galerie/DSC02699.JPG',
+      'galerie/DSC03899~2.JPG',
+      'galerie/DSC03933~2.JPG',
+      'galerie/DSC04174~2.JPG',
+      'galerie/DSC04181.JPG',
+      'galerie/DSC04203.JPG',
+      'galerie/IMG-20240801-WA0014.jpg',
+      'galerie/IMG-20250119-WA0004.jpg',
+      'galerie/IMG-20250119-WA0006.jpg',
+      'galerie/IMG-20251107-WA0007.jpg',
+      'galerie/IMG-20251108-WA0000.jpg',
+      'galerie/IMG-20251128-WA0042.jpg',
+      'galerie/IMG-20260312-WA0048.jpg',
+      'galerie/IMG-20260414-WA0004.jpg',
+      'galerie/IMG-20260414-WA0005.jpg',
+      'galerie/IMG_20201130_151015.jpg',
+      'galerie/IMG_20201205_093145.jpg',
+      'galerie/IMG_20240801_141915_258.jpg',
+      'galerie/IMG_2640.JPG',
+      'galerie/K%C3%BCche%202.jpg',
+      'galerie/Salzburg%208.jpg',
+      'galerie/Salzburg%2010.jpg',
+      'galerie/Wandschrank.jpg',
+      'galerie/Waschtisch.jpg'
+    ]
   };
 
   let curGallery = '', curIndex = 0;
