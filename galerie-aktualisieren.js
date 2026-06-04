@@ -31,15 +31,15 @@ function encodeFilename(name) {
 // ---- galerie.html aktualisieren ----
 let galHtml = fs.readFileSync(GALERIE_HTML, 'utf8');
 
-// foto-grid Inhalt ersetzen
+// foto-grid Inhalt ersetzen (mit Kommentar-Markern)
 const fotoItems = files.map((f, i) => {
   const enc = encodeFilename(f);
   return `      <div class="foto-item" onclick="openLightbox('alle',${i})"><img src="galerie/${enc}" alt="Arbeit" loading="lazy" /></div>`;
 }).join('\n');
 
 galHtml = galHtml.replace(
-  /(<div class="foto-grid">)[\s\S]*?(<\/div>)/,
-  `$1\n${fotoItems}\n    $2`
+  /<!-- FOTO-GRID-START -->[\s\S]*?<!-- FOTO-GRID-END -->/,
+  `<!-- FOTO-GRID-START -->\n${fotoItems}\n<!-- FOTO-GRID-END -->`
 );
 
 // galleries JS-Array ersetzen
