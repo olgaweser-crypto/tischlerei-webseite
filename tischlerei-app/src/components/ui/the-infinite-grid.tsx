@@ -84,9 +84,12 @@ export const Component = () => {
           >
             Interact ({count})
           </button>
-          <button className="px-8 py-3 bg-secondary text-secondary-foreground font-semibold rounded-md hover:bg-secondary/80 transition-all active:scale-95">
-            Learn More
-          </button>
+          <a
+            href="#unsere-galerie"
+            className="px-8 py-3 bg-secondary text-secondary-foreground font-semibold rounded-md hover:bg-secondary/80 transition-all active:scale-95 inline-block"
+          >
+            Unsere Galerie
+          </a>
         </div>
       </div>
     </div>
