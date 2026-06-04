@@ -202,7 +202,8 @@
       font-size: .9rem; font-weight: 600; letter-spacing: .04em;
       transition: background .2s, transform .15s;
       cursor: pointer; border: none;
-      display: inline-block;
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 190px;
     }
     .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
     .btn-ghost {
@@ -213,7 +214,8 @@
       font-size: .9rem; font-weight: 500;
       transition: border-color .2s, color .2s, transform .15s;
       cursor: pointer;
-      display: inline-block;
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 190px;
     }
     .btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
 
