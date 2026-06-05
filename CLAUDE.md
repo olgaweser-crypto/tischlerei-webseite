@@ -4,6 +4,11 @@
 - Next.js 15 + TypeScript + Tailwind CSS
 - Framer Motion für Animationen
 
+## Git-Regeln
+- Änderungen nur lokal committen
+- NIEMALS automatisch zu GitHub pushen
+- Erst pushen wenn die Nutzerin ausdrücklich "push" sagt
+
 ## Design-Regeln
 - Nutze das AskUserQuestion Tool, um den Nutzer über das Websitedesign zu interviewen, damit du die Vorstellungen des Nutzers genau abbilden kannst
 - Nutze den frontend-design Skill für alle UI-Entscheidungen
