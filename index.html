@@ -712,7 +712,16 @@
       }
       .nav-bottom { display: none; }
       .services-grid { grid-template-columns: 1fr; }
-      .team-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .team-card { overflow: visible; border-radius: 0; }
+      .team-photo { border-radius: var(--radius-md); }
+      .team-overlay {
+        position: static;
+        background: none;
+        padding: .6rem .25rem .25rem;
+      }
+      .team-name { font-size: 1rem; }
+      .team-role { font-size: .65rem; }
       .form-row { grid-template-columns: 1fr; }
       .gallery-bento { grid-auto-rows: 60px; }
       #galerie-vorschau .container > div:last-child { grid-template-columns: repeat(2,1fr) !important; }
@@ -1098,40 +1107,40 @@
       <div class="team-card fade-up">
         <div class="team-photo" style="background:none;">
           <img src="bilder/team-daniel.png" alt="Daniel Auer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
-          <div class="team-overlay">
-            <div class="team-name">Daniel Auer</div>
-            <div class="team-role">Geschäftsführer · Tischler</div>
-          </div>
+        </div>
+        <div class="team-overlay">
+          <div class="team-name">Daniel Auer</div>
+          <div class="team-role">Geschäftsführer · Tischler</div>
         </div>
       </div>
 
       <div class="team-card fade-up">
         <div class="team-photo" style="background:none;">
           <img src="bilder/team-guenter.png" alt="Günter Müller" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
-          <div class="team-overlay">
-            <div class="team-name">Günter Müller</div>
-            <div class="team-role">Tischlermeister</div>
-          </div>
+        </div>
+        <div class="team-overlay">
+          <div class="team-name">Günter Müller</div>
+          <div class="team-role">Tischlermeister</div>
         </div>
       </div>
 
       <div class="team-card fade-up">
         <div class="team-photo" style="background:none;">
           <img src="bilder/olga-auer.png" alt="Olga Auer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
-          <div class="team-overlay">
-            <div class="team-name">Olga Auer</div>
-            <div class="team-role">Webdesign · Fotografie</div>
-          </div>
+        </div>
+        <div class="team-overlay">
+          <div class="team-name">Olga Auer</div>
+          <div class="team-role">Webdesign · Fotografie</div>
         </div>
       </div>
 
       <div class="team-card fade-up">
         <div class="team-photo" style="background:none;">
           <img src="bilder/team-rudolf.png" alt="Rudolf Auer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
-          <div class="team-overlay">
-            <div class="team-name">Rudolf Auer</div>
-            <div class="team-role">Ehrenchef · Gründer</div>
-          </div>
+        </div>
+        <div class="team-overlay">
+          <div class="team-name">Rudolf Auer</div>
+          <div class="team-role">Ehrenchef · Gründer</div>
         </div>
       </div>
 
