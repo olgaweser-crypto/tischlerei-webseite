@@ -463,8 +463,8 @@
     .team-intro { color: var(--fog); max-width: 480px; margin-bottom: 3.5rem; }
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(3, 220px);
-      gap: 4rem;
+      grid-template-columns: repeat(4, 200px);
+      gap: 2.5rem;
       justify-content: center;
     }
     .team-card {
@@ -503,9 +503,6 @@
       letter-spacing: .1em; text-transform: uppercase;
       color: var(--gold);
     }
-    .team-card:nth-child(2) .team-photo { background: linear-gradient(160deg, #4A4845, #7A7672); }
-    .team-card:nth-child(3) .team-photo { background: linear-gradient(160deg, #2E2C2A, #58554F); }
-    .team-card:nth-child(4) .team-photo { background: linear-gradient(160deg, #424040, #706C68); }
 
     /* ─── CONTACT ────────────────────────────────────────── */
     .contact { background: var(--parchment); }
@@ -1076,11 +1073,10 @@
     <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;">
       <h2 style="font-size:clamp(2rem,3.5vw,3rem);">Einblick in unsere Arbeiten</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;">
-      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;cursor:pointer;" onclick="location.href='galerie.html'"><img src="galerie/20250910_104602.jpg" alt="Arbeit" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;cursor:pointer;" onclick="location.href='galerie.html'"><img src="galerie/Chalet1551_DSC02845.JPG" alt="Arbeit" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;cursor:pointer;" onclick="location.href='galerie.html'"><img src="galerie/DSC03812.JPG" alt="Arbeit" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;cursor:pointer;" onclick="location.href='galerie.html'"><img src="galerie/IMG_4833.JPG" alt="Arbeit" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;cursor:pointer;" onclick="location.href='galerie.html'"><img src="galerie/20250910_104602.jpg" alt="Maßgefertigtes Wandmöbel" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;cursor:pointer;" onclick="location.href='galerie.html'"><img src="galerie/WE_otos für webseite_DSC_0169.jpg" alt="Massivholz Esstisch" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;cursor:pointer;" onclick="location.href='galerie.html'"><img src="galerie/DSC_0075.jpg" alt="Schiebetür Fischgrät" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>
     </div>
     <div style="text-align:center;margin-top:2rem;">
       <a href="galerie.html" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--honey);color:var(--white);padding:.9rem 2.2rem;border-radius:var(--radius-sm);font-size:.9rem;font-weight:600;letter-spacing:.04em;transition:background .2s,transform .15s;" onmouseover="this.style.background='var(--gold)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--honey)';this.style.transform='translateY(0)'">
@@ -1101,7 +1097,7 @@
 
       <div class="team-card fade-up">
         <div class="team-photo" style="background:none;">
-          <img src="bilder/team-daniel.png" alt="Daniel Auer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+          <img src="bilder/team-daniel.png" alt="Daniel Auer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
           <div class="team-overlay">
             <div class="team-name">Daniel Auer</div>
             <div class="team-role">Geschäftsführer · Tischler</div>
@@ -1111,7 +1107,7 @@
 
       <div class="team-card fade-up">
         <div class="team-photo" style="background:none;">
-          <img src="bilder/team-guenter.png" alt="Günter Müller" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+          <img src="bilder/team-guenter.png" alt="Günter Müller" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
           <div class="team-overlay">
             <div class="team-name">Günter Müller</div>
             <div class="team-role">Tischlermeister</div>
@@ -1120,13 +1116,21 @@
       </div>
 
       <div class="team-card fade-up">
-        <div class="team-photo" style="background:#1A1714;">
-          <img src="bilder/olga-auer.png" alt="Olga Auer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(0.75) contrast(1.1);" />
-          <div class="team-overlay"></div>
-          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center top, transparent 35%, rgba(26,23,20,0.75) 100%);"></div>
+        <div class="team-photo" style="background:none;">
+          <img src="bilder/olga-auer.png" alt="Olga Auer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
           <div class="team-overlay">
             <div class="team-name">Olga Auer</div>
             <div class="team-role">Webdesign · Fotografie</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card fade-up">
+        <div class="team-photo" style="background:none;">
+          <img src="bilder/team-rudolf.png" alt="Rudolf Auer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
+          <div class="team-overlay">
+            <div class="team-name">Rudolf Auer</div>
+            <div class="team-role">Ehrenchef · Gründer</div>
           </div>
         </div>
       </div>
