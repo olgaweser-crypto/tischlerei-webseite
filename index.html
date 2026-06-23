@@ -1225,8 +1225,9 @@
       <div class="contact-form" role="form" aria-labelledby="form-title">
         <h3 id="form-title" class="serif">Nachricht senden</h3>
         <p>Schildern Sie uns kurz Ihr Vorhaben — wir melden uns umgehend bei Ihnen.</p>
-        <form id="contactForm" name="kontakt" method="POST" data-netlify="true" novalidate>
+        <form id="contactForm" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
           <input type="hidden" name="form-name" value="kontakt" />
+          <input type="hidden" name="bot-field" />
           <div class="form-row">
             <div class="form-field">
               <label for="vorname">Vorname <span aria-label="Pflichtfeld">*</span></label>
