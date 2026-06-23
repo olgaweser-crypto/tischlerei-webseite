@@ -1225,7 +1225,8 @@
       <div class="contact-form" role="form" aria-labelledby="form-title">
         <h3 id="form-title" class="serif">Nachricht senden</h3>
         <p>Schildern Sie uns kurz Ihr Vorhaben — wir melden uns umgehend bei Ihnen.</p>
-        <form id="contactForm" novalidate>
+        <form id="contactForm" name="kontakt" method="POST" data-netlify="true" novalidate>
+          <input type="hidden" name="form-name" value="kontakt" />
           <div class="form-row">
             <div class="form-field">
               <label for="vorname">Vorname <span aria-label="Pflichtfeld">*</span></label>
@@ -1346,7 +1347,7 @@
   // Form submission
   const form = document.getElementById('contactForm');
   const submitBtn = document.getElementById('submitBtn');
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.checkValidity()) {
       form.reportValidity();
@@ -1355,11 +1356,24 @@
     submitBtn.textContent = 'Wird gesendet…';
     submitBtn.disabled = true;
     submitBtn.style.opacity = '.7';
-    setTimeout(() => {
-      submitBtn.textContent = 'Nachricht gesendet ✓';
-      submitBtn.style.background = '#3a7d44';
-      form.reset();
-    }, 1500);
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      });
+      if (response.ok) {
+        submitBtn.textContent = 'Nachricht gesendet ✓';
+        submitBtn.style.background = '#3a7d44';
+        form.reset();
+      } else {
+        throw new Error();
+      }
+    } catch {
+      submitBtn.textContent = 'Fehler – bitte erneut versuchen';
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = '1';
+    }
   });
 
   // Scroll to top button
