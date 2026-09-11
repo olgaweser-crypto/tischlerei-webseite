@@ -34,7 +34,7 @@ let galHtml = fs.readFileSync(GALERIE_HTML, 'utf8');
 // foto-grid Inhalt ersetzen (mit Kommentar-Markern)
 const fotoItems = files.map((f, i) => {
   const enc = encodeFilename(f);
-  return `      <div class="foto-item" onclick="openLightbox('alle',${i})"><img src="galerie/${enc}" alt="Arbeit" loading="lazy" /></div>`;
+  return `      <div class="foto-item" onclick="openLightbox('alle',${i})"><img src="galerie/${enc}" alt="Tischlerarbeit von Tischlerei Auer in Bludenz" loading="lazy" /></div>`;
 }).join('\n');
 
 galHtml = galHtml.replace(
@@ -57,7 +57,7 @@ let idxHtml = fs.readFileSync(INDEX_HTML, 'utf8');
 
 const gridItems = files.map(f => {
   const enc = encodeFilename(f);
-  return `      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;cursor:pointer;" onclick="location.href='galerie.html'"><img src="galerie/${enc}" alt="Arbeit" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>`;
+  return `      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;cursor:pointer;" onclick="location.href='galerie.html'"><img src="galerie/${enc}" alt="Tischlerarbeit von Tischlerei Auer in Bludenz" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>`;
 }).join('\n');
 
 idxHtml = idxHtml.replace(
