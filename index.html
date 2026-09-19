@@ -837,7 +837,12 @@
       transition: top .2s; z-index: 200;
     }
     .skip-link:focus { top: 1rem; }
-  .door-category{display:block;position:relative;overflow:hidden;aspect-ratio:4/3;border-radius:var(--radius-md);color:white;background:#3B3835}.door-category>img{width:100%;height:100%;object-fit:cover;object-position:50% 32%;transition:transform .3s}.door-category>span{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;background:linear-gradient(transparent 35%,rgba(0,0,0,.78))}.door-category strong{font-size:2rem;font-family:'Cormorant Garamond',serif}.door-category span span{font-size:1rem}.door-category:hover>img{transform:scale(1.04)}.door-category:focus-visible{outline:3px solid var(--rosegold);outline-offset:5px}@media(prefers-reduced-motion:reduce){.door-category>img{transition:none}}.door-service{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:2rem;overflow:hidden;padding:0}.door-service>img{width:100%;height:320px;object-fit:cover;object-position:center 30%}.door-service>div{padding:2rem 2rem 2rem 0}.door-service .service-title{font-size:2.2rem}.door-service-link{display:inline-block;margin-top:1.25rem;padding:.7rem 1.2rem;background:var(--honey);color:white;border-radius:4px;font-size:1rem}.door-service:focus-visible{outline:3px solid var(--gold);outline-offset:5px}#leistungen{scroll-margin-top:150px}@media(max-width:600px){.door-service{grid-template-columns:1fr;gap:0}.door-service>div{padding:1.5rem}.door-service>img{height:260px}}#galerie-vorschau .door-service{margin-bottom:1.5rem;background:var(--espresso);border-color:var(--fog)}#galerie-vorschau{scroll-margin-top:150px}</style>
+  .door-category{display:block;position:relative;overflow:hidden;aspect-ratio:4/3;border-radius:var(--radius-md);color:white;background:#3B3835}.door-category>img{width:100%;height:100%;object-fit:cover;object-position:50% 32%;transition:transform .3s}.door-category>span{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;background:linear-gradient(transparent 35%,rgba(0,0,0,.78))}.door-category strong{font-size:2rem;font-family:'Cormorant Garamond',serif}.door-category span span{font-size:1rem}.door-category:hover>img{transform:scale(1.04)}.door-category:focus-visible{outline:3px solid var(--rosegold);outline-offset:5px}@media(prefers-reduced-motion:reduce){.door-category>img{transition:none}}.door-service{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:2rem;overflow:hidden;padding:0}.door-service>img{width:100%;height:320px;object-fit:cover;object-position:center 30%}.door-service>div{padding:2rem 2rem 2rem 0}.door-service .service-title{font-size:2.2rem}.door-service-link{display:inline-block;margin-top:1.25rem;padding:.7rem 1.2rem;background:var(--honey);color:white;border-radius:4px;font-size:1rem}.door-service:focus-visible{outline:3px solid var(--gold);outline-offset:5px}#leistungen{scroll-margin-top:150px}@media(max-width:600px){.door-service{grid-template-columns:1fr;gap:0}.door-service>div{padding:1.5rem}.door-service>img{height:260px}}#galerie-vorschau .door-service{margin-bottom:1.5rem;background:var(--espresso);border-color:var(--fog)}#galerie-vorschau{scroll-margin-top:150px}#kuechen-vorschau{scroll-margin-top:150px}    .selected-rooms { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+    .selected-rooms a { display:block; overflow:hidden; aspect-ratio:4/3; border-radius:var(--radius-md); }
+    .selected-rooms img { display:block; width:100%; height:100%; object-fit:cover; }
+    .selected-rooms a:focus-visible { outline:3px solid var(--honey); outline-offset:4px; }
+    @media (max-width:640px) { .selected-rooms { grid-template-columns:1fr; } }
+  </style>
 </head>
 <body>
 
@@ -851,7 +856,7 @@
 <nav class="nav" role="navigation" aria-label="Hauptnavigation">
   <div class="nav-top">
     <a href="#" class="nav-logo">
-      <img src="logo-transparent.png" alt="Tischlerei Auer" />
+      <img src="logo-transparent.png?v=daa5e2a51684" alt="Tischlerei Auer" />
     </a>
     <button class="burger" aria-label="Menü öffnen" aria-expanded="false" id="burgerBtn">
       <span></span><span></span><span></span>
@@ -895,7 +900,7 @@
   </div>
   <div class="hero-right" aria-hidden="true">
     <div class="hero-img" style="background:none;">
-      <img src="bilder/erste-foto.jpg" alt="Tischlerei Auer" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <img src="bilder/erste-foto.jpg?v=b12a2d4e83ae" alt="Tischlerei Auer" style="width:100%;height:100%;object-fit:cover;display:block;" />
     </div>
   </div>
 </section>
@@ -929,7 +934,7 @@
     <div class="about-grid">
       <div class="about-img-wrap" aria-hidden="true">
         <div class="about-img-main" style="background:none;overflow:hidden;">
-          <img src="bilder/werkstatt.jpg" alt="Werkstatt Tischlerei Auer" style="width:100%;height:100%;object-fit:cover;" />
+          <img src="bilder/werkstatt.jpg?v=3e3331b4806a" alt="Werkstatt Tischlerei Auer" style="width:100%;height:100%;object-fit:cover;" />
         </div>
       </div>
       <div class="about-text fade-up">
@@ -1003,7 +1008,8 @@
         <p class="service-desc">Der erste Eindruck beginnt im Eingangsbereich. Wir fertigen maßgeschneiderte Garderoben, die Ordnung, Stil und Persönlichkeit verbinden – vom schlichten Haken bis zur raumhohen Einbaulösung.</p>
       </div>
 
-      <a class="service-card door-service" href="tueren.html" aria-label="Türen – Bilder ansehen"><img src="Unsere%20T%C3%BCren/Altholzt%C3%BCr%20mit%20Kranz%20und%20langem%20Griff%20bearbeitet.png" alt="Altholztür mit Blumenkranz und schwarzem Griff" loading="lazy"><div><h3 class="service-title">Türen</h3><p class="service-desc">Entdecken Sie unsere Türen – von rustikalem Altholz bis zu klaren, modernen Formen.</p><span class="door-service-link">Bilder ansehen ↗</span></div></a>
+      <a class="service-card door-service" href="tueren.html" aria-label="Türen – Bilder ansehen"><img src="Unsere%20T%C3%BCren/Altholzt%C3%BCr%20mit%20Kranz%20und%20langem%20Griff%20bearbeitet.png?v=b22083c99bc9" alt="Altholztür mit Blumenkranz und schwarzem Griff" loading="lazy"><div><h3 class="service-title">Türen</h3><p class="service-desc">Entdecken Sie unsere Türen – von rustikalem Altholz bis zu klaren, modernen Formen.</p><span class="door-service-link">Bilder ansehen ↗</span></div></a>
+      <a class="service-card door-service" id="kuechen-vorschau" href="kuechen.html" aria-label="Küchen – Bilder ansehen"><img src="K%C3%BCchen/Fichtenk%C3%BCche%20mit%20Fikus.png?v=511b9d119208" alt="Fichtenküche mit Fikus" loading="lazy" style="object-position:center"><div><h3 class="service-title">Küchen</h3><p class="service-desc">Küchen nach Maß – mit natürlichen Materialien, durchdachten Details und Platz für das Leben.</p><span class="door-service-link">Bilder ansehen ↗</span></div></a>
 
     </div>
   </div>
@@ -1049,18 +1055,18 @@
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:1rem;margin-bottom:3rem;">
-      <div style="grid-column:1/3;grid-row:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn1.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn2.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn3.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn4.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn5.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="grid-column:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn6.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn7.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn8.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn9.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn10.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn11.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn12.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="grid-column:1/3;grid-row:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn1.jpg?v=27c1f9e7fa88" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn2.jpg?v=e2fb18976489" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn3.jpg?v=f95f6be7d7e1" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn4.jpg?v=49f220525bbb" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn5.jpg?v=d43ecb75b769" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="grid-column:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn6.jpg?v=b75480f53ea4" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn7.jpg?v=4215be45c001" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn8.jpg?v=fcc087a9e30d" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn9.jpg?v=d95f31fda8f3" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn10.jpg?v=2402155179b9" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn11.jpg?v=ba3649c1d422" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/woodnest/wn12.jpg?v=4303003bfa72" style="width:100%;height:100%;object-fit:cover;" /></div>
     </div>
 
     <div style="text-align:center;padding:2rem 0;">
@@ -1078,16 +1084,16 @@
     <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);color:white;margin-bottom:1rem;">Das Chalet 1551 Lech</h2>
     <p style="color:var(--fog);max-width:660px;margin-bottom:3rem;font-size:1rem;line-height:1.8;">"Rustikales Holz, Wärme und die Ruhe der Berge - ein Rückzugsort zum Verweilen..."</p>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:1rem;margin-bottom:3rem;">
-      <div style="grid-column:1/3;grid-row:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch1.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch2.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch3.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch4.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch5.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="grid-column:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch6.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch7.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch8.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch9.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch10.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="grid-column:1/3;grid-row:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch1.jpg?v=68b2b553a5eb" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch2.jpg?v=90a9cfd75faa" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch3.jpg?v=1a840761729b" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch4.jpg?v=ce29a27a1105" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch5.jpg?v=22aaa421214d" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="grid-column:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch6.jpg?v=23fe006c3229" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch7.jpg?v=47397cf5031c" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch8.jpg?v=f4a60760ee17" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch9.jpg?v=f21bc86e2543" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/chalet/ch10.jpg?v=ead661bfba8e" style="width:100%;height:100%;object-fit:cover;" /></div>
     </div>
   </div>
 </div>
@@ -1105,21 +1111,21 @@
       <p style="font-size:.85rem;color:var(--fog);margin:0;line-height:1.7;">Meister Tischler Günter Müller fertigte diese Decke handwerklich an. Mit Senior Rudolf Auer entstand im kleinen Team ein Werk, das den Charakter von früher bewahrt und gleichzeitig neu gefertigt ist.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:1rem;">
-      <div style="grid-column:1/3;grid-row:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr1.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr2.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr3.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr4.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr5.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="grid-column:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr6.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr7.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr8.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr9.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr10.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr11.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr12.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="grid-column:3/5;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr13.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr14.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr15.jpg" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="grid-column:1/3;grid-row:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr1.jpg?v=c12f4956936b" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr2.jpg?v=a6ca77d1273b" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr3.jpg?v=7190f7b6d241" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr4.jpg?v=b6e53244cda6" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr5.jpg?v=272681b68718" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="grid-column:1/3;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr6.jpg?v=58d228cb5c50" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr7.jpg?v=9d5c879caade" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr8.jpg?v=d210603f84c1" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr9.jpg?v=2ae2a4863cf7" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr10.jpg?v=28ac6c052ade" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr11.jpg?v=fb57b005b8f1" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr12.jpg?v=7010df18886a" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="grid-column:3/5;border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr13.jpg?v=635771838e45" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr14.jpg?v=268b9632e60d" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;"><img src="bilder/projekte/pr15.jpg?v=c313dea1f34d" style="width:100%;height:100%;object-fit:cover;" /></div>
     </div>
   </div>
 </div>
@@ -1133,10 +1139,10 @@
     </div>
 
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
-      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;cursor:pointer;" onclick="location.href='galerie.html'"><img src="galerie/20250910_104602.jpg" alt="Maßgefertigtes Wandmöbel" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;cursor:pointer;" onclick="location.href='galerie.html'"><img src="galerie/WE_otos für webseite_DSC_0169.jpg" alt="Massivholz Esstisch" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>
-      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;cursor:pointer;" onclick="location.href='galerie.html'"><img src="galerie/DSC_0075.jpg" alt="Schiebetür Fischgrät" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" /></div>
+    <div class="selected-rooms">
+      <a href="galerie.html" aria-label="Heller Essbereich mit individuell gestaltetem Holztisch und Kreuzgestell – Galerie ansehen"><img src="bilder/auswahl/essbereich-vorschau.webp?v=4195f96ef333" alt="Heller Essbereich mit individuell gestaltetem Holztisch und Kreuzgestell" loading="lazy" decoding="async" width="1000" height="750" /></a>
+      <a href="galerie.html" aria-label="Schlafzimmer mit raumhohem Einbauschrank und Schiebetür – Galerie ansehen"><img src="bilder/auswahl/schlafzimmer-vorschau.webp?v=d75e43b370f8" alt="Schlafzimmer mit raumhohem Einbauschrank und Schiebetür" loading="lazy" decoding="async" width="1000" height="750" /></a>
+      <a href="galerie.html" aria-label="Badezimmer mit Holzwaschtisch, Natursteinbecken und blauer Akzentbeleuchtung – Galerie ansehen"><img src="bilder/auswahl/badezimmer-vorschau.webp?v=da47fb7300b4" alt="Badezimmer mit Holzwaschtisch, Natursteinbecken und blauer Akzentbeleuchtung" loading="lazy" decoding="async" width="1000" height="750" /></a>
     </div>
     <div style="text-align:center;margin-top:2rem;">
       <a href="galerie.html" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--honey);color:var(--white);padding:.9rem 2.2rem;border-radius:var(--radius-sm);font-size:.9rem;font-weight:600;letter-spacing:.04em;transition:background .2s,transform .15s;" onmouseover="this.style.background='var(--gold)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--honey)';this.style.transform='translateY(0)'">
@@ -1157,7 +1163,7 @@
 
       <div class="team-card fade-up">
         <div class="team-photo" style="background:none;">
-          <img src="bilder/team-daniel.png?v=2" alt="Daniel Auer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
+          <img src="bilder/team-daniel.png?v=0df48672f872" alt="Daniel Auer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
         </div>
         <div class="team-overlay">
           <div class="team-name">Daniel Auer</div>
@@ -1167,7 +1173,7 @@
 
       <div class="team-card fade-up">
         <div class="team-photo" style="background:none;">
-          <img src="bilder/team-guenter.png" alt="Günter Müller" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
+          <img src="bilder/team-guenter.png?v=48000e685ed5" alt="Günter Müller" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
         </div>
         <div class="team-overlay">
           <div class="team-name">Günter Müller</div>
@@ -1177,7 +1183,7 @@
 
       <div class="team-card fade-up">
         <div class="team-photo" style="background:none;">
-          <img src="bilder/olga-auer.png?v=2" alt="Olga Auer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
+          <img src="bilder/olga-auer.png?v=b9ec48659c6c" alt="Olga Auer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
         </div>
         <div class="team-overlay">
           <div class="team-name">Olga Auer</div>
@@ -1187,7 +1193,7 @@
 
       <div class="team-card fade-up">
         <div class="team-photo" style="background:none;">
-          <img src="bilder/team-rudolf.png" alt="Rudolf Auer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
+          <img src="bilder/team-rudolf.png?v=f89270c37a0e" alt="Rudolf Auer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
         </div>
         <div class="team-overlay">
           <div class="team-name">Rudolf Auer</div>
