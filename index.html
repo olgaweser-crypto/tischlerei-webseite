@@ -859,7 +859,9 @@
     .selected-rooms img { display:block; width:100%; height:100%; object-fit:cover; }
     .selected-rooms a:focus-visible { outline:3px solid var(--honey); outline-offset:4px; }
     @media (max-width:640px) { .selected-rooms { grid-template-columns:1fr; } }
-  </style>
+  
+.mobile-nav{padding:calc(var(--header-height,100px) + 20px) 1rem 24px;gap:clamp(.7rem,3vh,1.5rem);overflow-y:auto}.mobile-nav a{font-size:clamp(1.5rem,4.5vh,2.5rem);flex-shrink:0}@media(max-height:520px){.mobile-nav{justify-content:flex-start}}
+</style>
 </head>
 <body>
 
@@ -894,6 +896,8 @@
 <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Mobilnavigation">
   <a href="#leistungen" onclick="closeNav()">Leistungen</a>
   <a href="galerie.html?v=werkstatt-20261006" onclick="closeNav()">Unsere Galerie</a>
+  <a href="tueren.html" onclick="closeNav()">Unsere Türen</a>
+  <a href="kuechen.html" onclick="closeNav()">Unsere Küchen</a>
   <a href="#team" onclick="closeNav()">Team</a>
   <a href="#kontakt" onclick="closeNav()">Kontakt</a>
 </div>
@@ -959,24 +963,7 @@
         <h2 id="about-title">Handwerk, das Bestand hat.</h2>
         <p>Seit 1997 führen wir in Bludenz einen Familienbetrieb, der für Qualität und Individualität steht. Was Rudolf Auer begann, führt Daniel Auer heute mit derselben Leidenschaft und Präzision weiter.</p>
         <p>Jedes Stück entsteht nach Ihren Wünschen — von der ersten Idee bis zur fertigen Montage. Wir verbinden traditionelles Tischlerhandwerk mit modernem Design und schaffen Einrichtungen, die wirklich zu Ihnen passen.</p>
-        <div class="about-values">
-          <div class="about-value fade-up">
-            <div class="about-value-title">Qualität, die bleibt</div>
-            <p>Ausgewählte Hölzer, präzise Verarbeitung und durchdachte Details – für Möbel, die lange Freude machen.</p>
-          </div>
-          <div class="about-value fade-up">
-            <div class="about-value-title">Individualität</div>
-            <p>Jedes Stück entsteht nach Ihren Wünschen und Ideen.</p>
-          </div>
-          <div class="about-value fade-up">
-            <div class="about-value-title">Nachhaltigkeit</div>
-            <p>Regionale Lieferketten, emissionsarme Lacke und Öle.</p>
-          </div>
-          <div class="about-value fade-up">
-            <div class="about-value-title">Langlebigkeit</div>
-            <p>Handwerkliche Verbindungen, die Generationen überdauern.</p>
-          </div>
-        </div>
+        <p>Individuelle Möbel aus ausgewählten Hölzern – präzise gefertigt, für lange Freude.</p>
       </div>
     </div>
   </div>
@@ -1464,5 +1451,19 @@
     nav.style.padding = window.scrollY > 60 ? '.75rem 2.5rem' : '1.25rem 2.5rem';
   }, { passive: true });
 </script>
-</body>
+<script id="gallery-navigation">
+(()=>{
+ const key='auer-gallery-origin',pending='auer-gallery-return';
+ const nav=document.querySelector('.nav');
+ const update=()=>document.documentElement.style.setProperty('--header-height',(nav?.getBoundingClientRect().height||90)+'px');
+ update();if(nav)new ResizeObserver(update).observe(nav);
+ document.addEventListener('click',e=>{
+ const back=e.target.closest('[data-gallery-back]');
+ if(back){let origin;try{origin=JSON.parse(sessionStorage.getItem(key));}catch{}if(origin&&new URL(origin.url).origin===location.origin){e.preventDefault();sessionStorage.setItem(pending,'1');if(document.referrer&&new URL(document.referrer).pathname===new URL(origin.url).pathname)history.back();else location.href=origin.url;}return;}
+ const link=e.target.closest('a[href]');const card=e.target.closest('[onclick]');
+ const target=link?.getAttribute('href')||card?.getAttribute('onclick')||'';
+ if(/(?:galerie|kuechen|tueren)\.html/.test(target)&&!/(?:galerie|kuechen|tueren)\.html$/.test(location.pathname))sessionStorage.setItem(key,JSON.stringify({url:location.href,y:scrollY}));
+ },true);
+ addEventListener('pageshow',()=>{if(sessionStorage.getItem(pending)!=='1')return;let origin;try{origin=JSON.parse(sessionStorage.getItem(key));}catch{}if(!origin||origin.url!==location.href)return;sessionStorage.removeItem(pending);scrollTo({top:origin.y,behavior:'instant'});requestAnimationFrame(()=>scrollTo({top:origin.y,behavior:'instant'}));});
+})();</script></body>
 </html>
